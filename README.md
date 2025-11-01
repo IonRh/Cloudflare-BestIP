@@ -8,6 +8,8 @@
 
 ## 项目介绍
 
+交流群聊：https://t.me/IonMagic
+
 Cloudflare BestIP 是一个高效的 IP 优选工具，通过Golang重构，借助 XIU2/CloudflareSpeedTest 的测速工具实现
 
 支持 Cloudflare、阿里云和腾讯云 DNSPod 的 DNS 记录更新，帮助用户优选IP。
