@@ -82,6 +82,16 @@ Cloudflare BestIP 是一个高效的 IP 优选工具，通过Golang重构，借�
 - `Dnspod.SecretKey`: 腾讯云 SecretKey
   > SecretKey获取地址：https://console.dnspod.cn/account/token/apikey
 
+### HWDNS 配置
+
+- `HWDNS.Enabled`: 是否启用腾讯云 DNSPod 更新，`true` 或 `false`
+- `HWDNS.Domain`: 您的主域名
+- `HWDNS.SubDomainName`: 子域名名称
+- `HWDDNS_AK`: 华为云访问密钥ID
+- `HWDDNS_SK`: 华为云访问密钥key
+  > SecretKey获取地址：https://console.huaweicloud.com/iam/?locale=zh-cn&region=cn-south-1#/mine/accessKey
+
+
 ### CloudflareST 测速配置
 
 - `CloudflareST.Enabled`: 是否启用 CloudflareST 测速，`true` 或 `false`
@@ -133,6 +143,14 @@ curl -sL https://ghproxy.badking.pp.ua/https://raw.githubusercontent.com/IonRh/C
 3. 测试可执行文件 `./BestIP`
 4. 后台运行可执行文件 `nohup ./BestIP > /dev/null 2>&1 &`
 
+2. windwos运行
+
+下载[releases](https://github.com/IonRh/Cloudflare-BestIP/releases) 中的BestIP-Windows.zip文件
+
+配置好`config.json`
+
+点击`BestIP.exe`文件,即可
+
 ## 展示页面示例
 
 ![image](https://github.com/user-attachments/assets/24a57a0e-42a1-4853-8268-3f545658fecc)
@@ -143,13 +161,16 @@ curl -sL https://ghproxy.badking.pp.ua/https://raw.githubusercontent.com/IonRh/C
 
 ![image](https://github.com/user-attachments/assets/df0e6aa3-4cdd-458a-ba9e-7c640bcf56e8)
 
+
+小广告·[聚合流量号卡平台](https://haoka.loadke.tech/) 500余卡，选出卡中实惠
+
 ## 注意事项
 
 - 请确保您的 API 密钥等敏感信息安全，不要泄露给他人
 - 测速时可能会消耗一定的网络流量，请注意您的网络计划
 - 本工具基于 XIU2/CloudflareSpeedTest，需要下载其测速组件才能正常工作
 - 更新频率不建议设置过高，以免触发 API 调用限制
-- 暂不开源，无任何后门，挖矿，等危害计算机行为，可抓包获取外连网址。
+- 如果有任何bug问题，欢迎提issue，感谢支持
 
 ## 版权和许可
 
