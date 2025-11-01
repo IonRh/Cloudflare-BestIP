@@ -12,7 +12,7 @@
 
 Cloudflare BestIP 是一个高效的 IP 优选工具，通过Golang重构，借助 XIU2/CloudflareSpeedTest 的测速工具实现
 
-支持 Cloudflare、阿里云和腾讯云 DNSPod 的 DNS 记录更新，帮助用户优选IP。
+支持 Cloudflare、阿里云和腾讯云 DNSPod 华为云DNS 的 DNS 记录更新，帮助用户优选IP。
 
 本工具可以帮助用户找到最优的 IP 地址，并自动更新到您的域名解析记录中。
 
@@ -24,7 +24,7 @@ Cloudflare BestIP 是一个高效的 IP 优选工具，通过Golang重构，借�
 
 - 自动下载和测试 Cloudflare IP 速度
 - 支持 IPv4 和 IPv6 两种模式
-- 支持 Cloudflare、阿里云和腾讯云 DNSPod 三种 DNS 服务商
+- 支持 Cloudflare、阿里云和腾讯云 DNSPod 华为云DNS 四种 DNS 服务商
 - 可自定义测试参数和优选规则
 - 支持 Cloudflare Workers KV 存储优选 IP 结果，并web展示
 - 定时监控 DNS 解析状态，在延迟或丢包超过阈值时自动更新
@@ -86,7 +86,7 @@ Cloudflare BestIP 是一个高效的 IP 优选工具，通过Golang重构，借�
 
 ### HWDNS 配置
 
-- `HWDNS.Enabled`: 是否启用腾讯云 DNSPod 更新，`true` 或 `false`
+- `HWDNS.Enabled`: 是否启用华为云DNS 更新，`true` 或 `false`
 - `HWDNS.Domain`: 您的主域名
 - `HWDNS.SubDomainName`: 子域名名称
 - `HWDDNS_AK`: 华为云访问密钥ID
