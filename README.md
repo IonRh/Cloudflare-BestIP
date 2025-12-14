@@ -30,6 +30,15 @@ Cloudflare BestIP 是一个高效的 IP 优选工具，通过Golang重构，借�
 - 定时监控 DNS 解析状态，在延迟或丢包超过阈值时自动更新
 - 支持消息推送通知（如 Telegram）
 
+## Docker运行
+```
+docker run -d \
+  --name BestIP \
+  -e TZ="Asia/Shanghai" \
+  -v "$(pwd)/BestIP:/root/" \
+  kwxos/bestip:latest
+```
+
 ## 配置文件参数详解
 
 `config.json` 文件包含了所有配置参数，下面是详细的参数解释：
