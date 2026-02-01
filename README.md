@@ -114,6 +114,7 @@ IP xxx.xx.xx.205 延迟超阈值: 54.20ms > 10.00ms
 ### CloudflareST 测速配置
 
 - `CloudflareST.Enabled`: 是否启用 CloudflareST 测速，`true` 或 `false`
+-  "Output_file": "result.csv", 无特殊需求，保持默认即可
 - `CloudflareST.CFST_URL`: 测速目标 URL
 - `CloudflareST.CFST_conf`: CloudflareST 测速参数配置详情见https://github.com/XIU2/CloudflareSpeedTest
 
