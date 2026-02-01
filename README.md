@@ -56,10 +56,18 @@ docker run -d \
 
   > 不只是telegram，其他能够在连接后面添加信息的，都可推送
 
-推送示例:
+推送示例（未开单IP测试）:
 ```
 当前优选：ipv4 将更新
 延迟超过阈值: 域名 xxxxx.xxx.xxx 平均延迟 265.48ms 超过阈值 250.00ms
+```
+
+推送示例（开单IP测试）:
+```
+当前优选：ipv4 检测到问题IP
+域名：xxxx.cf.badking.pp.ua
+IP xxx.xx.xx.251 延迟超阈值: 54.60ms > 10.00ms
+IP xxx.xx.xx.205 延迟超阈值: 54.20ms > 10.00ms
 ```
 
 ### 阿里云配置 (Aliyun)
@@ -128,6 +136,7 @@ docker run -d \
 ### 测试监控配置
 
 - `TestSetime.Enabled`: 是否启用定时监控，`true` 或 `false`
+- `TestOnlyIP`: 是否启用单IP测试监控（更加准确），`true` 或 `false`
 - `TestSetime.Test_domain`: 需要监控的域名（你推送到指定平台的指定域名）
 - `TestSetime.Test_latencyThreshold`: 延迟阈值（毫秒）
 - `TestSetime.Test_packetLossThreshold`: 丢包率阈值（百分比）
