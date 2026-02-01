@@ -1,5 +1,5 @@
 FROM frolvlad/alpine-glibc:latest
-RUN apk add --no-cache curl bash sed busybox
+RUN apk add --no-cache curl bash sed busybox tzdata && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo "Asia/Shanghai" > /etc/timezone
 WORKDIR /root
 RUN ls && mkdir /app && cd /app && curl -sL https://ghproxy.badking.pp.ua/https://raw.githubusercontent.com/IonRh/Cloudflare-BestIP/main/BestIP.sh | bash
 COPY Docker/main.sh /app/main.sh
