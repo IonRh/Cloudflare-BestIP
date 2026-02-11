@@ -5,11 +5,12 @@ export TZ='Asia/Shanghai'
 # 检查/root是否有config.json文件
 if [ -f /root/config.json ]; then
     # 有文件则执行BestIP
+    cp -f /app/BestIP /root/BestIP || exit 1
     cd /root && ./BestIP
 else
 	# 无文件则移动/app/到/root
-	mv /app/config.json /root/
-    mv /app/BestIP /root/
+	mv /app/config.json /root/ || exit 1
+    cp -f /app/BestIP /root/BestIP || exit 1
     cd /root/
     echo "修改config.json重启Docker后，正常运行"
     # ./BestIP > /dev/null 2>&1 &
