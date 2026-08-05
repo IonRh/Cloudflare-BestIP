@@ -14,6 +14,5 @@ else
     cd /root/
     echo "修改config.json重启Docker后，正常运行"
     # ./BestIP > /dev/null 2>&1 &
+	tail -f /dev/null
 fi
-
-tail -f /dev/null
