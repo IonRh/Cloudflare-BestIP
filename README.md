@@ -403,9 +403,9 @@ grep "测速完成" ./data/bestip.log | wc -l
 
 <a href="https://github.com/IonRh/Cloudflare-BestIP/stargazers" target="_blank" style="display: block" align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=IonRh/Cloudflare-BestIP&type=Timeline&theme=dark" />
-    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=IonRh/Cloudflare-BestIP&type=Timeline" />
-    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=IonRh/Cloudflare-BestIP&type=Timeline" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://star-history.dera.page/svg?repos=IonRh/Cloudflare-BestIP&type=Timeline&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://star-history.dera.page/svg?repos=IonRh/Cloudflare-BestIP&type=Timeline" />
+    <img alt="Star History Chart" src="https://star-history.dera.page/svg?repos=IonRh/Cloudflare-BestIP&type=Timeline" />
   </picture>
 </a>
 
