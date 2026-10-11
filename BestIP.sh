@@ -39,7 +39,7 @@ case "$OS" in
     ;;
 esac
 
-REPO_URL="https://ghproxy.badking.pp.ua/https://github.com/IonRh/Cloudflare-BestIP/releases/download"
+REPO_URL="https://github.com/IonRh/Cloudflare-BestIP/releases/download"
 URL="$REPO_URL/$VERSION/$PKG"
 
 echo "下载: $URL"
