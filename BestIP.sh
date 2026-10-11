@@ -1,6 +1,6 @@
 #!/bin/bash
 
-API_URL="https://ghproxy.badking.pp.ua/https://api.github.com/repos/IonRh/Cloudflare-BestIP/releases/latest"
+API_URL="https://api.github.com/repos/IonRh/Cloudflare-BestIP/releases/latest"
 
 # 获取最新版本号
 if [ -z "$1" ]; then
