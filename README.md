@@ -72,9 +72,9 @@ docker logs -f BestIP
 {
   "IP_Type": "ipv4&ipv6",        // IP类型: ipv4 | ipv6 | ipv4&ipv6
   "IP_Number": 10,               // 更新的IP数量
-  "IPv4_Url": "https://...",     // IPv4地址列表URL
+  "IPv4_Url": "https://www.cloudflare.com/ips-v4",  // IPv4地址列表URL（Cloudflare 官方）
   "Best_IPv4": "https://...",    // 最佳IPv4地址URL（可选）
-  "IPv6_Url": "https://...",     // IPv6地址列表URL
+  "IPv6_Url": "https://www.cloudflare.com/ips-v6",  // IPv6地址列表URL（Cloudflare 官方）
   "Pushinfo": "https://api.telegram.org/bot<TOKEN>/sendMessage?chat_id=<CHAT_ID>&text=",
   "debug": false                 // 调试模式开关
 }
@@ -157,7 +157,7 @@ docker logs -f BestIP
 ```json
 "CloudflareST": {
   "Enabled": true,              // 是否启用CloudflareST测速
-  "CFST_URL": "https://cf.xiu2.xyz/url",  // 测速目标URL
+  "CFST_URL": "https://speed.cloudflare.com/__down?bytes=1000000",  // 测速目标URL（Cloudflare 官方测速端点）
   "CFST_conf": "-t 2 -n 200 -dn 10 -dt 5 -tp 443 -tl 200 -tll 40 -tlr 0.2 -sl 1",  // 测速参数
   "ShowProgress": false         // 是否显示测速进度条
 }
@@ -166,14 +166,14 @@ docker logs -f BestIP
 **详细参数说明**（基于 [XIU2/CloudflareSpeedTest](https://github.com/XIU2/CloudflareSpeedTest)）：
 
 #### 🚀 测速性能参数
-- **`-t 4`**: 延迟测速线程数 - 越多延迟测速越快，性能弱的设备请勿太高（默认 4，最多 1000）
-- **`-n 200`**: 延迟测速次数 - 单个 IP 延迟测速的次数（默认 200 次）
+- **`-t 4`**: 单个 IP 延迟测速的次数（默认 4 次）
+- **`-n 200`**: 延迟测速线程数 - 越多延迟测速越快，性能弱的设备请勿太高（默认 200，最多 1000）
 - **`-dn 10`**: 下载测速数量 - 延迟测速排序后，从最低延迟起下载测速的数量（默认 10 个）
 - **`-dt 10`**: 下载测速时间 - 单个 IP 下载测速最长时间，不能太短（默认 10 秒）
 
 #### 🌐 网络连接参数
 - **`-tp 443`**: 指定测速端口 - 延迟测速/下载测速使用的端口（默认 443）
-- **`-url https://cf.xiu2.xyz/url`**: 指定测速地址 - 建议自建以保证可用性
+- **`-url https://speed.cloudflare.com/__down?bytes=1000000`**: 指定测速地址 - 建议自建以保证可用性
 
 #### 📊 过滤条件参数
 - **`-tl 200`**: 平均延迟上限 - 只输出低于指定延迟的 IP（默认 9999ms）
@@ -193,6 +193,11 @@ docker logs -f BestIP
 - 性能弱的设备（如路由器）建议降低 `-t` 和 `-n` 参数
 - HTTPing 模式可能被识别为网络扫描，建议降低并发数
 - 自建测速地址可提高测速稳定性和准确性
+
+**⚠️ 实测注意事项**：
+- `CloudflareST.Enabled` 必须为 `true`，否则程序不测速、不生成 `result.csv`，只会空转报错。
+- IP 列表下载后缓存在 `./data/XIPfile/ip.txt`，文件存在时不再重新下载；如需强制刷新，删除该文件后重新运行。
+- `data/csv/result.csv` 包含全部有效 IP（按速度/延迟排序）；`IP_Number` 只限制 DNS 推送数量和屏幕显示行数，不限制 CSV。
 
 ### 🌐 Cloudflare KV 存储配置
 
@@ -296,7 +301,7 @@ IP 104.18.1.205 延迟超阈值: 298.20ms > 250.00ms
 **Q: 测速失败或结果为空**
 ```bash
 # 检查网络连接
-curl -I https://cf.xiu2.xyz/url
+curl -I "https://speed.cloudflare.com/__down?bytes=1000000"
 
 # 检查配置文件格式
 cat config.json | jq .
